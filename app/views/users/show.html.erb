@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>マイページ</h1>
+
+  <table class="table table-responsive">
+    <tr>
+      <td style="font-size:20px;">名前：<%= @user.name %></td>
+      <td style="font-size:20px;">グループID：<%= @user.family_group_id %></td>
+      <% if @user.id == current_user.id%>
+      <td><%= link_to '編集', edit_user_path , :class => "btn btn-warning" %></td>
+      <% else %>
+      <% end %>
+    </tr>
+  </table>
+  <hr>
+  <%= link_to 'グループを作る', new_family_group_path, :class => "btn btn-primary" %>
+  <a href="../family_groups/<%= current_user.family_group_id %>" class="btn btn-primary">自分のグループへ</a>
+
+</div>

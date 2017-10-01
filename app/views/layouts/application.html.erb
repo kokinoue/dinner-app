@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>今日の晩御飯</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse bg-inverse" style="background-color: #444444;">
+        <p class="title"><a href="/top">今日の晩御飯</a></p>
+        <ul>
+          <% if user_signed_in? %>
+             <li><%= link_to 'このサイトについて', description_index_path %></li>
+             <li><%= link_to 'ユーザー', users_path %></li>
+             <li><a href="/users/<%= current_user.id%>">マイページ</a></li>
+           <% if current_user.family_group_id.nil? %>
+           <% else %>
+             <li><a href="../family_groups/<%= current_user.family_group_id %>">マイグループ</a></li>
+           <% end %>
+           <% if current_user.family_group_id.nil? %>
+           <% else %>
+             <li><%= link_to '過去の晩御飯', dinner_data_path %></li>
+           <% end %>
+             <li><%= link_to  'ログアウト', destroy_user_session_path,:method => :delete %></li>
+           <% else %>
+             <li><%= link_to '登録する', new_user_registration_path %></li>
+             <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <div class="">
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>

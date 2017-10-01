@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>ユーザー</h1>
+  <table class="table table-responsive">
+    <tr>
+      <th>名前</th>
+      <th>グループID</th>
+    </tr>
+   <% @users.each do |u| %>
+   <tr>
+     <td><%= u.name %></td>
+     <td><%= u.family_group_id %></td>
+   </tr>
+   <% end %>
+  </table>
+</div>

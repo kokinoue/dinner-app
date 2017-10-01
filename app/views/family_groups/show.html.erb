@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>グループ : <%= @family_group.family_name %></h2>
+  <br>
+
+ <div class="group">
+   <table class="table table-resposive">
+     <tr>
+       <th>名前</th>
+       <th>メール</th>
+     </tr>
+     <% @family_group.users.each do |member| %>
+     <tr>
+       <td><%= member.name %></td>
+       <td><%= member.email %></td>
+     </tr>
+     <% end %>
+   </table>
+   <%= link_to 'アンケートを作る', new_questionnaire_path, :class => 'btn btn-primary' %>
+   <hr>
+ </div>
+   <% if @questionnaires.empty? %>
+   <% else %>
+    <%= render 'questionnaires/show' %>
+    <%= render 'dinner_data/new' %>
+   <% end %>
+  
+</div>

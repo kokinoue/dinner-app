@@ -1,0 +1,28 @@
+<div class="container">
+
+  <h1>アンケートを作る</h1>
+  <hr>
+  <%= form_for(@questionnaire) do |q| %>
+  <div class="field">
+    <%= q.label :'１：' %>
+    <%= q.text_field :dinner_name1 %>
+  </div><br>
+  <div class="field">
+    <%= q.label :'２：' %>
+    <%= q.text_field :dinner_name2 %>
+  </div><br>
+  <div class="field">
+    <%= q.label :'３：' %>
+    <%= q.text_field :dinner_name3 %>
+  </div><br>
+  <div class="field">
+    <%= q.label :'４：' %>
+    <%= q.text_field :dinner_name4 %>
+  </div><br>
+  <%= q.hidden_field :family_group_id, value: current_user.family_group_id %>
+  <div class="action">
+    <%= q.submit '今日の夜ご飯を決めよう！'%>
+  </div>
+  <% end %>
+
+</div>
