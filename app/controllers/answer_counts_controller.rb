@@ -8,7 +8,7 @@ class AnswerCountsController < ApplicationController
     answer_counts = AnswerCount.new(answer_count_params)
     answer_counts.questionnaire_id = params[:questionnaire_id]
     if answer_counts.save!
-      redirect_to family_group_path(current_user.family_group.family_group_id), success: 'アンケートに答えました'
+      redirect_to "/family_groups/#{current_user.family_group_id}", success: 'アンケートに答えました'
     else
       redirect_to root_path
     end

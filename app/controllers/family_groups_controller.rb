@@ -9,7 +9,7 @@ class FamilyGroupsController < ApplicationController
     @dinner_datum = DinnerDatum.new
     @questionnaires = @family_group.questionnaires
     if @questionnaires.empty?
-
+      #redirect_to user_path(current_user), alert: "設定したグループは存在しません！グループを作成しましょう！"
     else
       @answer_counts1 = AnswerCount.where(questionnaire_id:@questionnaires.last.id, dinner:@questionnaires.last.dinner_name1)
       @answer_counts2 = AnswerCount.where(questionnaire_id:@questionnaires.last.id, dinner:@questionnaires.last.dinner_name2)
@@ -25,13 +25,12 @@ class FamilyGroupsController < ApplicationController
   def create
     @family_group = FamilyGroup.new(family_group_params)
 
-    respond_to do |format|
       if @family_group.save
-        format.html { redirect_to user_path(current_user)}
+        redirect_to user_path(current_user)
       else
-        format.html { redirect_to new_family_group_path(current_user)}
+        redirect_to new_family_group_path(current_user), alert: '間違っている部分があります'
       end
-    end
+
   end
 
 

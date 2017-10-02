@@ -1,5 +1,10 @@
 <div class="container">
   <h1>グループを作る</h1>
+  <% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
   <hr>
   <%= form_for(@family_group) do |f| %>
   <div class="field">

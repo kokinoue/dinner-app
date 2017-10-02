@@ -9,5 +9,6 @@ class User < ApplicationRecord
   belongs_to :family_group, primary_key: :family_group_id, optional: true
   has_many :votings
   validates :family_group_id, length: { is: 8 }, on: :update
+  
 
 end

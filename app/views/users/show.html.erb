@@ -1,6 +1,10 @@
 <div class="container">
   <h1>マイページ</h1>
-
+  <% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
   <table class="table table-responsive">
     <tr>
       <td style="font-size:20px;">名前：<%= @user.name %></td>
@@ -13,6 +17,4 @@
   </table>
   <hr>
   <%= link_to 'グループを作る', new_family_group_path, :class => "btn btn-primary" %>
-  <a href="../family_groups/<%= current_user.family_group_id %>" class="btn btn-primary">自分のグループへ</a>
-
 </div>

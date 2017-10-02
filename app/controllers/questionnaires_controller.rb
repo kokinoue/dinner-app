@@ -14,7 +14,7 @@ class QuestionnairesController < ApplicationController
 
   def update
     if @questionnaire.update(dinner1: params[:questionnaire][:dinner1], dinner2: params[:questionnaire][:dinner2], dinner3: params[:questionnaire][:dinner3], dinner4: params[:questionnaire][:dinner4])
-      redirect_to family_group_path(current_user.family_group.family_group_id)
+      redirect_to "/family_groups/#{current_user.family_group_id}"
     else
       render root_path
     end
@@ -24,7 +24,7 @@ class QuestionnairesController < ApplicationController
     @questionnaire = Questionnaire.new(questionnaire_params)
     @questionnaire.save
     if @questionnaire.save
-      redirect_to   family_group_path(current_user.family_group.family_group_id)
+      redirect_to "/family_groups/#{current_user.family_group_id}"
     else
       redirect_to new_questionnaire_path
     end
