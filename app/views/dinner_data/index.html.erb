@@ -1,7 +1,7 @@
 <div class="container">
   <h2>過去の晩御飯</h2>
   <table class="table table-resposive">
-    <% @dinner_datum.each do |d| %>
+    <% @dinner_datum.reverse_each do |d| %>
     <tr>
       <td><%= d.created_at.strftime("%Y年%m月%d日") %></td>
       <td><%= d.dinner_name %></td>

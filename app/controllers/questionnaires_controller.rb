@@ -1,4 +1,5 @@
 class QuestionnairesController < ApplicationController
+  before_action :authenticate_user!
 
   def show
     @questionnaire = Questionnaire.find(params[:id])

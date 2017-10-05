@@ -3,6 +3,7 @@
   <br>
 
  <div class="group">
+   <h3>メンバー</h3>
    <table class="table table-resposive">
      <tr>
        <th>名前</th>
@@ -16,7 +17,7 @@
      <% end %>
    </table>
    <%= link_to 'アンケートを作る', new_questionnaire_path, :class => 'btn btn-primary' %>
-   <hr>
+   
  </div>
    <% if @questionnaires.empty? %>
    <% else %>

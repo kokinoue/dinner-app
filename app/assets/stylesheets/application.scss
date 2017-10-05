@@ -52,24 +52,18 @@
    color:#F0F8FF;
  }
 
- // .question{
- //   margin-bottom: 50px;
- // }
- // .FAQ{
- //   width: 380px;
- //   float: left;
- //   margin-right: 100px;
- // }
 
 
  //top
- .rice{
+.rice{
    width: 100%;
    height: 800px;
    background-image:url('rice.jpg');
    background-size: cover;
    z-index: 1;
  }
+
+
 
 //description
 .description{
@@ -109,4 +103,11 @@ footer {
  }
 footer p{
   margin-bottom: 0;
+}
+
+
+
+//family_group
+.group{
+  margin-bottom: 50px;
 }
