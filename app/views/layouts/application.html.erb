@@ -15,7 +15,7 @@
         <ul>
           <% if user_signed_in? %>
              <li><%= link_to 'このサイトについて', description_index_path %></li>
-             <li><%= link_to 'ユーザー', users_path %></li>
+             <!-- <li><%#= link_to 'ユーザー', users_path %></li> -->
              <li><a href="/users/<%= current_user.id%>">マイページ</a></li>
            <% if current_user.family_group_id.nil? %>
            <% else %>

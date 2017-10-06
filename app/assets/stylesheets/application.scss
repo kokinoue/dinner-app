@@ -20,7 +20,8 @@
 @import "variables";
 
 .container{
-  margin: 0 auto 66px;;
+  margin: 0 auto 66px;
+  padding-top: 80px;
 }
 
 //header
@@ -30,6 +31,10 @@
    font-size: 35px;
    color:#F0F8FF;
    margin: 0;
+ }
+ header{
+   position: fixed;
+   width: 100%;
  }
  nav{
    padding: 0 149px;
@@ -57,10 +62,9 @@
  //top
 .rice{
    width: 100%;
-   height: 800px;
+   height: 900px;
    background-image:url('rice.jpg');
    background-size: cover;
-   z-index: 1;
  }
 
 
@@ -110,4 +114,23 @@ footer p{
 //family_group
 .group{
   margin-bottom: 50px;
+}
+
+
+
+//dinner_data
+.dinnerdata{
+  margin-top:70px;
+  text-align: center;
+  border: double 3px #333333;
+}
+.datatitle, .dinnername, .dinnerbtn{
+  margin:10px;
+}
+.dinnername{
+  font-size: 20px;
+  height: 30px;
+}
+.dinnername, .dinnerbtn{
+  width: 300px;
 }

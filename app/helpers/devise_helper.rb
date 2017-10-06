@@ -1,17 +1,20 @@
 module DeviseHelper
   def devise_error_messages!
-    return '' if resource.errors.empty?
+    return "" if resource.errors.empty?
 
-    html = []
-    html << content_tag(:div, class: 'alert alert-danger', role: 'alert') do
-      content_tag(:ul) do
-        resource.errors.full_messages.each do |error_message|
-          concat content_tag(:li, error_message.to_s)
-        end
-      end
+    html = ""
+    messages = resource.errors.full_messages.each do |errmsg|
+      html += <<-EOF
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">close</span>
+        </button>
+        #{errmsg}
+      </div>
+      EOF
     end
-
-    safe_join html
+    html.html_safe
   end
 
   def devise_error_messages?

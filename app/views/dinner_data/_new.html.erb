@@ -1,11 +1,12 @@
 
-  <hr>
-  <h3>結局、本日食べたのは、、、</h3>
-  <%= form_for(@dinner_datum) do |d| %>
-  <div class="field">
-   <%= d.text_area :dinner_name %>
+  <div class="dinnerdata">
+    <h3 class="datatitle">結局、本日食べたのは、、、</h3>
+     <%= form_for(@dinner_datum) do |d| %>
+    <div class="field">
+     <%= d.text_area :dinner_name, :class => 'dinnername' %>
+    </div>
+    <div class="action">
+     <%= d.submit :'これだ!!!', :class => 'btn btn-success dinnerbtn' %>
+    </div>
+    <% end %>
   </div>
-  <div class="action">
-   <%= d.submit :'これだ!!!', :class => 'btn btn-success' %>
-  </div>
-  <% end %>
