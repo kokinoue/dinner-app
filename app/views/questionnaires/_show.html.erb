@@ -1,9 +1,16 @@
    <hr>
    <h2>本日のアンケート</h2>
+
    <% if flash[:success] %>
-   <div class="alert alert-success">
+    <div class="alert alert-success">
      <%= flash[:success] %>
-   </div>
+    </div>
+   <% end %>
+   
+   <% if flash[:alert] %>
+    <div class="alert alert-danger">
+     <%= flash[:alert] %>
+    </div>
    <% end %>
 
    <table class="table table-resposive">
@@ -11,6 +18,7 @@
        <td><P>１：<%= @questionnaires.last.dinner_name1 %></p></td>
        <td><%= form_for(AnswerCount.new, url: questionnaire_answer_counts_path(@questionnaires.last.id)) do |f| %>
             <%= f.hidden_field :dinner, value: @questionnaires.last.dinner_name1 %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.submit "投票", class: "btn btn-success" %>
             <% end %> </td>
        <td><%= @answer_counts1.count %></td>
@@ -19,6 +27,7 @@
        <td><P>２：<%= @questionnaires.last.dinner_name2 %></p></td>
        <td><%= form_for(AnswerCount.new, url: questionnaire_answer_counts_path(@questionnaires.last.id)) do |f| %>
             <%= f.hidden_field :dinner, value: @questionnaires.last.dinner_name2 %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.submit "投票", class: "btn btn-success" %>
             <% end %> </td>
        <td><%= @answer_counts2.count %></td>
@@ -27,6 +36,7 @@
        <td><P>３：<%= @questionnaires.last.dinner_name3 %></p></td>
        <td><%= form_for(AnswerCount.new, url: questionnaire_answer_counts_path(@questionnaires.last.id)) do |f| %>
             <%= f.hidden_field :dinner, value: @questionnaires.last.dinner_name3 %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.submit "投票", class: "btn btn-success" %>
             <% end %> </td>
        <td><%= @answer_counts3.count %></td>
@@ -35,6 +45,7 @@
        <td><P>４：<%= @questionnaires.last.dinner_name4 %></p></td>
        <td><%= form_for(AnswerCount.new, url: questionnaire_answer_counts_path(@questionnaires.last.id)) do |f| %>
             <%= f.hidden_field :dinner, value: @questionnaires.last.dinner_name4 %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.submit "投票", class: "btn btn-success" %>
             <% end %> </td>
        <td><%= @answer_counts4.count %></td>

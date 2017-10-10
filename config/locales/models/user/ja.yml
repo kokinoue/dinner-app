@@ -1,5 +1,8 @@
 ja:
  activerecord:
+   errors:
+     messages:
+       record_invalid: "バリデーションに失敗しました: %{errors}"
  models:
    user: ユーザー
  attributes:
@@ -9,3 +12,4 @@ ja:
      email: メールアドレス
      password: パスワード
      password_confirmation: パスワード確認
+     other: 他
